@@ -430,12 +430,12 @@ cursor.execute(query, VALUES)
 conn.commit()'''
 
 
-num = input("000000000000004b08010000017564e56e580027f9d4df0ed17380001000690f0000000f07f001150445010101b300fa01fb0106425434180000cd7255ceea0c430ff809002b02c70000390b100000aeeb000100008f1a")
+def myfunction():
 
-try:
-    decimal = int(num, 16)  # interpret the input as a base-16 number, a hexadecimal.
-except ValueError:
-    print("You did not enter a hexadecimal number!")
+ print(ZeroBytes_int, DataFieldLength_int, CodecID_int, NumberofData1Records_int, date, Priority_int, a, b, Altitude_int, Angle_int ,Satellites_int,Speed_int,Event_IO_ID_int,NofTotalID_int,N1ofOneByteIO_int,FirsttIOID_int,FirstIOValue_int,SecondIOID_int,SecondIOValue_int,ThirdIOID_int,ThirdIOValue_int,FourthIOID_int,FourthIOValue_int,FifthIOID_int,FifthIOValue_int,SixthIOID_int,SixthIOValue_int,SeventhIOID_int,SeventhIOValue_int,N2ofTwoBytesIO_int,First_IOID_int,First_IOValue_int,Second_IOID_int,Second_IOValue_int,ThirdIOID_int,ThirdIOValue_int,FourthIOID_int,FourthIOValue_int,FifthIOID_int,FifthIOValue_int,SixthIOID_int,SixthIOValue_int,N4ofFourBytesIO_int,First__IOID_int,First__IOValue_int,Second__IOID_int,Second__IOValue_int,N8ofEightBytesIO_int,NumberofData2NumberofTotalRecords_int,CRC_16_int)
+
+
+myfunction()
 
 
 
