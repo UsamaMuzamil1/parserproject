@@ -430,16 +430,12 @@ cursor.execute(query, VALUES)
 conn.commit()'''
 
 
-cursor.execute("SELECT * FROM ParsingDetail")
-record1 = cursor.fetchone()
+num = input("000000000000004b08010000017564e56e580027f9d4df0ed17380001000690f0000000f07f001150445010101b300fa01fb0106425434180000cd7255ceea0c430ff809002b02c70000390b100000aeeb000100008f1a")
 
-record2 = cursor.fetchone()
+try:
+    decimal = int(num, 16)  # interpret the input as a base-16 number, a hexadecimal.
+except ValueError:
+    print("You did not enter a hexadecimal number!")
 
 
-
-from tabulate import tabulate
-
-fetchrecord = [record1,record2]
-
-print(tabulate(fetchrecord, headers=["Zero_Bytes","Data_Field_Length","Codec_ID","Number_of_Data1_Records","Timestamp","Priority","Longitude","Latitude","Altitude","Angle","Satellites","Speed","Event_IO_ID","N_of_Total_ID","N1_of_One_Byte","first_IO_ID","first_IO_Value","second_IO_ID","second_IO_Value","third_IO_ID","third_IO_Value","fourth_IO_ID","fourth_IO_Value","fifth_IO_ID","fifth_IO_Value","sixth_IO_ID","sixth_IO_Value","seventh_IO_ID","seventh_IO_Value","N2_of_Two_Byte","first__IO_ID","first__IO_Value","second__IO_ID","second__IO_Value","third__IO_ID","third__IO_Value","fourth__IO_ID","fourth__IO_Value","fifth__IO_ID","fifth__IO_Value","sixth__IO_ID","sixth__IO_Value","N4_of_Four_Byte","first_IO__ID","first_IO__Value","second_IO__ID","second_IO__Value","N8_of_Eight_Byte","Number_of_Data_2_Number_of_Total_Records","CRC_16"]))
 
