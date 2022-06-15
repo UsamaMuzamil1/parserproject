@@ -392,7 +392,7 @@ import mysql.connector
               "second_IO__Value VARCHAR(255),"
               "N8_of_Eight_Byte VARCHAR(255),"
               "Number_of_Data_2_Number_of_Total_Records VARCHAR(255),"
-              "CRC_16 VARCHAR(255))")
+              "CRC_16 VARCHAR(255))")'''
 
 
 
@@ -407,7 +407,9 @@ def insert_varibles_into_table(Zero_Bytes,Data_Field_Length,Codec_ID,Number_of_D
         mySql_insert_query = """INSERT INTO ParsingDetail(Zero_Bytes,Data_Field_Length,Codec_ID,Number_of_Data1_Records,Timestamp,Priority,Longitude,Latitude,Altitude,Angle,Satellites,Speed,Event_IO_ID,N_of_Total_ID,N1_of_One_Byte,first_IO_ID,first_IO_Value,second_IO_ID,second_IO_Value,third_IO_ID,third_IO_Value,fourth_IO_ID,fourth_IO_Value,fifth_IO_ID,fifth_IO_Value,sixth_IO_ID,sixth_IO_Value,seventh_IO_ID,seventh_IO_Value,N2_of_Two_Byte,first__IO_ID,first__IO_Value,second__IO_ID,second__IO_Value,third__IO_ID,third__IO_Value,fourth__IO_ID,fourth__IO_Value,fifth__IO_ID,fifth__IO_Value,sixth__IO_ID,sixth__IO_Value,N4_of_Four_Byte,first_IO__ID,first_IO__Value,second_IO__ID,second_IO__Value,N8_of_Eight_Byte,Number_of_Data_2_Number_of_Total_Records,CRC_16) 
                                 VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s) """
 
-        record = (Zero_Bytes,Data_Field_Length,Codec_ID,Number_of_Data1_Records,Timestamp,Priority,Longitude,Latitude,Altitude,Angle,Satellites,Speed,Event_IO_ID,N_of_Total_ID,N1_of_One_Byte,first_IO_ID,first_IO_Value,second_IO_ID,second_IO_Value,third_IO_ID,third_IO_Value,fourth_IO_ID,fourth_IO_Value,fifth_IO_ID,fifth_IO_Value,sixth_IO_ID,sixth_IO_Value,seventh_IO_ID,seventh_IO_Value,N2_of_Two_Byte,first__IO_ID,first__IO_Value,second__IO_ID,second__IO_Value,third__IO_ID,third__IO_Value,fourth__IO_ID,fourth__IO_Value,fifth__IO_ID,fifth__IO_Value,sixth__IO_ID,sixth__IO_Value,N4_of_Four_Byte,first_IO__ID,first_IO__Value,second_IO__ID,second_IO__Value,N8_of_Eight_Byte,Number_of_Data_2_Number_of_Total_Records,CRC_16)
+record = (myfunction())
+
+#      record = (Zero_Bytes,Data_Field_Length,Codec_ID,Number_of_Data1_Records,Timestamp,Priority,Longitude,Latitude,Altitude,Angle,Satellites,Speed,Event_IO_ID,N_of_Total_ID,N1_of_One_Byte,first_IO_ID,first_IO_Value,second_IO_ID,second_IO_Value,third_IO_ID,third_IO_Value,fourth_IO_ID,fourth_IO_Value,fifth_IO_ID,fifth_IO_Value,sixth_IO_ID,sixth_IO_Value,seventh_IO_ID,seventh_IO_Value,N2_of_Two_Byte,first__IO_ID,first__IO_Value,second__IO_ID,second__IO_Value,third__IO_ID,third__IO_Value,fourth__IO_ID,fourth__IO_Value,fifth__IO_ID,fifth__IO_Value,sixth__IO_ID,sixth__IO_Value,N4_of_Four_Byte,first_IO__ID,first_IO__Value,second_IO__ID,second_IO__Value,N8_of_Eight_Byte,Number_of_Data_2_Number_of_Total_Records,CRC_16)
         cursor.execute(mySql_insert_query, record)
         connection.commit()
         print("Record inserted successfully into ParsingDetail table")
@@ -421,12 +423,12 @@ def insert_varibles_into_table(Zero_Bytes,Data_Field_Length,Codec_ID,Number_of_D
             connection.close()
             print("MySQL connection is closed")
 
+insert_varibles_into_table(myfunction())
+# insert_varibles_into_table(ZeroBytes_int, DataFieldLength_int, CodecID_int, NumberofData1Records_int, date, Priority_int, a, b, Altitude_int, Angle_int ,Satellites_int,Speed_int,Event_IO_ID_int,NofTotalID_int,N1ofOneByteIO_int,FirsttIOID_int,FirstIOValue_int,SecondIOID_int,SecondIOValue_int,ThirdIOID_int,ThirdIOValue_int,FourthIOID_int,FourthIOValue_int,FifthIOID_int,FifthIOValue_int,SixthIOID_int,SixthIOValue_int,SeventhIOID_int,SeventhIOValue_int,N2ofTwoBytesIO_int,First_IOID_int,First_IOValue_int,Second_IOID_int,Second_IOValue_int,ThirdIOID_int,ThirdIOValue_int,FourthIOID_int,FourthIOValue_int,FifthIOID_int,FifthIOValue_int,SixthIOID_int,SixthIOValue_int,N4ofFourBytesIO_int,First__IOID_int,First__IOValue_int,Second__IOID_int,Second__IOValue_int,N8ofEightBytesIO_int,NumberofData2NumberofTotalRecords_int,CRC_16_int)
 
-insert_varibles_into_table(ZeroBytes_int, DataFieldLength_int, CodecID_int, NumberofData1Records_int, date, Priority_int, a, b, Altitude_int, Angle_int ,Satellites_int,Speed_int,Event_IO_ID_int,NofTotalID_int,N1ofOneByteIO_int,FirsttIOID_int,FirstIOValue_int,SecondIOID_int,SecondIOValue_int,ThirdIOID_int,ThirdIOValue_int,FourthIOID_int,FourthIOValue_int,FifthIOID_int,FifthIOValue_int,SixthIOID_int,SixthIOValue_int,SeventhIOID_int,SeventhIOValue_int,N2ofTwoBytesIO_int,First_IOID_int,First_IOValue_int,Second_IOID_int,Second_IOValue_int,ThirdIOID_int,ThirdIOValue_int,FourthIOID_int,FourthIOValue_int,FifthIOID_int,FifthIOValue_int,SixthIOID_int,SixthIOValue_int,N4ofFourBytesIO_int,First__IOID_int,First__IOValue_int,Second__IOID_int,Second__IOValue_int,N8ofEightBytesIO_int,NumberofData2NumberofTotalRecords_int,CRC_16_int)
 
 
-
-# i am adding extra row by inserting hardcore values to check in table form
+'''# i am adding extra row by inserting hardcore values to check in table form
 
 VALUES = ("20", "715", "78", "12", "2022-06-26 18:12:39", "0", "55.0684383", "74.8607616", "106", "15","5", "0","10", "75", "28", "2", "2022", "0", "5506", "7616", "16", "115","25", "0","2", "7151", "278", "712", "202", "10", "55843", "2472", "06", "5","544", "10","220", "785", "38", "312", "29", "0", "5383", "7506", "1", "15277","7472", "41","0", "70457")
 query = "INSERT INTO ParsingDetail(Zero_Bytes,Data_Field_Length,Codec_ID,Number_of_Data1_Records,Timestamp,Priority,Longitude,Latitude,Altitude,Angle,Satellites,Speed,Event_IO_ID,N_of_Total_ID,N1_of_One_Byte,first_IO_ID,first_IO_Value,second_IO_ID,second_IO_Value,third_IO_ID,third_IO_Value,fourth_IO_ID,fourth_IO_Value,fifth_IO_ID,fifth_IO_Value,sixth_IO_ID,sixth_IO_Value,seventh_IO_ID,seventh_IO_Value,N2_of_Two_Byte,first__IO_ID,first__IO_Value,second__IO_ID,second__IO_Value,third__IO_ID,third__IO_Value,fourth__IO_ID,fourth__IO_Value,fifth__IO_ID,fifth__IO_Value,sixth__IO_ID,sixth__IO_Value,N4_of_Four_Byte,first_IO__ID,first_IO__Value,second_IO__ID,second_IO__Value,N8_of_Eight_Byte,Number_of_Data_2_Number_of_Total_Records,CRC_16) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
