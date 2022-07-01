@@ -1,9 +1,8 @@
 import datetime
 import mysql.connector as msql
 
-def myfunction():
+def myfunction(Hexa_Code):
 
- Hexa_Code = "000000000000004b08010000017564e56e580027f9d4df0ed17380001000690f0000000f07f001150445010101b300fa01fb0106425434180000cd7255ceea0c430ff809002b02c70000390b100000aeeb000100008f1a"
 
 # print("Slide 1 ")
 
@@ -37,10 +36,8 @@ def myfunction():
  Timestamp_int = int(Timestamp_hex, 16)
 #print(Timestamp_int)
 
-
  date = datetime.datetime.fromtimestamp(Timestamp_int / 1e3)
 #print(date)
-
 
  Priority_hex = Hexa_Code[36:38]
 #print(Priority_hex)
@@ -322,15 +319,25 @@ def myfunction():
  NumberofData2NumberofTotalRecords_int = int(NumberofData2NumberofTotalRecords_hex, 16)
 #print(NumberofData2NumberofTotalRecords_int)
 
+
  CRC_16_hex = Hexa_Code[170:178]
 #print(CRC_16_hex)
 
  CRC_16_int = int(CRC_16_hex, 16)
 #print(CRC_16_int)
 
- print(ZeroBytes_int, DataFieldLength_int, CodecID_int, NumberofData1Records_int, date, Priority_int, a, b, Altitude_int, Angle_int ,Satellites_int,Speed_int,Event_IO_ID_int,NofTotalID_int,N1ofOneByteIO_int,FirsttIOID_int,FirstIOValue_int,SecondIOID_int,SecondIOValue_int,ThirdIOID_int,ThirdIOValue_int,FourthIOID_int,FourthIOValue_int,FifthIOID_int,FifthIOValue_int,SixthIOID_int,SixthIOValue_int,SeventhIOID_int,SeventhIOValue_int,N2ofTwoBytesIO_int,First_IOID_int,First_IOValue_int,Second_IOID_int,Second_IOValue_int,ThirdIOID_int,ThirdIOValue_int,FourthIOID_int,FourthIOValue_int,FifthIOID_int,FifthIOValue_int,SixthIOID_int,SixthIOValue_int,N4ofFourBytesIO_int,First__IOID_int,First__IOValue_int,Second__IOID_int,Second__IOValue_int,N8ofEightBytesIO_int,NumberofData2NumberofTotalRecords_int,CRC_16_int)
+ insert_varibles_into_table(ZeroBytes_int, DataFieldLength_int, CodecID_int, NumberofData1Records_int, date,
+                           Priority_int, a, b, Altitude_int, Angle_int, Satellites_int, Speed_int, Event_IO_ID_int,
+                           NofTotalID_int, N1ofOneByteIO_int, FirsttIOID_int, FirstIOValue_int, SecondIOID_int,
+                           SecondIOValue_int, ThirdIOID_int, ThirdIOValue_int, FourthIOID_int, FourthIOValue_int,
+                           FifthIOID_int, FifthIOValue_int, SixthIOID_int, SixthIOValue_int, SeventhIOID_int,
+                           SeventhIOValue_int, N2ofTwoBytesIO_int, First_IOID_int, First_IOValue_int, Second_IOID_int,
+                           Second_IOValue_int, ThirdIOID_int, ThirdIOValue_int, FourthIOID_int, FourthIOValue_int,
+                           FifthIOID_int, FifthIOValue_int, SixthIOID_int, SixthIOValue_int, N4ofFourBytesIO_int,
+                           First__IOID_int, First__IOValue_int, Second__IOID_int, Second__IOValue_int,
+                           N8ofEightBytesIO_int, NumberofData2NumberofTotalRecords_int, CRC_16_int)
 
-myfunction()
+
 
 # conn = msql.connect(host='localhost', user='root', password='password')  # give ur username, password
 # cursor = conn.cursor()
@@ -338,6 +345,8 @@ myfunction()
 
 conn = msql.connect(host='localhost', user='root', password='password', database='parsingdata')
 cursor = conn.cursor()
+
+
 
 
 import mysql.connector
@@ -396,8 +405,16 @@ import mysql.connector
 
 
 
-print("parsing code")
-def insert_varibles_into_table(Zero_Bytes,Data_Field_Length,Codec_ID,Number_of_Data1_Records,Timestamp,Priority,Longitude,Latitude,Altitude,Angle,Satellites,Speed,Event_IO_ID,N_of_Total_ID,N1_of_One_Byte,first_IO_ID,first_IO_Value,second_IO_ID,second_IO_Value,third_IO_ID,third_IO_Value,fourth_IO_ID,fourth_IO_Value,fifth_IO_ID,fifth_IO_Value,sixth_IO_ID,sixth_IO_Value,seventh_IO_ID,seventh_IO_Value,N2_of_Two_Byte,first__IO_ID,first__IO_Value,second__IO_ID,second__IO_Value,third__IO_ID,third__IO_Value,fourth__IO_ID,fourth__IO_Value,fifth__IO_ID,fifth__IO_Value,sixth__IO_ID,sixth__IO_Value,N4_of_Four_Byte,first_IO__ID,first_IO__Value,second_IO__ID,second_IO__Value,N8_of_Eight_Byte,Number_of_Data_2_Number_of_Total_Records,CRC_16):
+
+def insert_varibles_into_table(Zero_Bytes, Data_Field_Length, Codec_ID, Number_of_Data1_Records, Timestamp, Priority,
+                               Longitude, Latitude, Altitude, Angle, Satellites, Speed, Event_IO_ID, N_of_Total_ID,
+                               N1_of_One_Byte, first_IO_ID, first_IO_Value, second_IO_ID, second_IO_Value, third_IO_ID,
+                               third_IO_Value, fourth_IO_ID, fourth_IO_Value, fifth_IO_ID, fifth_IO_Value, sixth_IO_ID,
+                               sixth_IO_Value, seventh_IO_ID, seventh_IO_Value, N2_of_Two_Byte, first__IO_ID,
+                               first__IO_Value, second__IO_ID, second__IO_Value, third__IO_ID, third__IO_Value,
+                               fourth__IO_ID, fourth__IO_Value, fifth__IO_ID, fifth__IO_Value, sixth__IO_ID,
+                               sixth__IO_Value, N4_of_Four_Byte, first_IO__ID, first_IO__Value, second_IO__ID,
+                               second_IO__Value, N8_of_Eight_Byte, Number_of_Data_2_Number_of_Total_Records, CRC_16):
     try:
         connection = mysql.connector.connect(host='localhost',
                                              database='parsingdata',
@@ -405,11 +422,19 @@ def insert_varibles_into_table(Zero_Bytes,Data_Field_Length,Codec_ID,Number_of_D
                                              password='password')
         cursor = connection.cursor()
         mySql_insert_query = """INSERT INTO ParsingDetail(Zero_Bytes,Data_Field_Length,Codec_ID,Number_of_Data1_Records,Timestamp,Priority,Longitude,Latitude,Altitude,Angle,Satellites,Speed,Event_IO_ID,N_of_Total_ID,N1_of_One_Byte,first_IO_ID,first_IO_Value,second_IO_ID,second_IO_Value,third_IO_ID,third_IO_Value,fourth_IO_ID,fourth_IO_Value,fifth_IO_ID,fifth_IO_Value,sixth_IO_ID,sixth_IO_Value,seventh_IO_ID,seventh_IO_Value,N2_of_Two_Byte,first__IO_ID,first__IO_Value,second__IO_ID,second__IO_Value,third__IO_ID,third__IO_Value,fourth__IO_ID,fourth__IO_Value,fifth__IO_ID,fifth__IO_Value,sixth__IO_ID,sixth__IO_Value,N4_of_Four_Byte,first_IO__ID,first_IO__Value,second_IO__ID,second_IO__Value,N8_of_Eight_Byte,Number_of_Data_2_Number_of_Total_Records,CRC_16) 
-                                VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s) """
+                               VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s) """
 
-record = (myfunction())
-
-#      record = (Zero_Bytes,Data_Field_Length,Codec_ID,Number_of_Data1_Records,Timestamp,Priority,Longitude,Latitude,Altitude,Angle,Satellites,Speed,Event_IO_ID,N_of_Total_ID,N1_of_One_Byte,first_IO_ID,first_IO_Value,second_IO_ID,second_IO_Value,third_IO_ID,third_IO_Value,fourth_IO_ID,fourth_IO_Value,fifth_IO_ID,fifth_IO_Value,sixth_IO_ID,sixth_IO_Value,seventh_IO_ID,seventh_IO_Value,N2_of_Two_Byte,first__IO_ID,first__IO_Value,second__IO_ID,second__IO_Value,third__IO_ID,third__IO_Value,fourth__IO_ID,fourth__IO_Value,fifth__IO_ID,fifth__IO_Value,sixth__IO_ID,sixth__IO_Value,N4_of_Four_Byte,first_IO__ID,first_IO__Value,second_IO__ID,second_IO__Value,N8_of_Eight_Byte,Number_of_Data_2_Number_of_Total_Records,CRC_16)
+        record = (
+            Zero_Bytes, Data_Field_Length, Codec_ID, Number_of_Data1_Records, Timestamp, Priority, Longitude, Latitude,
+            Altitude, Angle, Satellites, Speed, Event_IO_ID, N_of_Total_ID, N1_of_One_Byte, first_IO_ID, first_IO_Value,
+            second_IO_ID, second_IO_Value, third_IO_ID, third_IO_Value, fourth_IO_ID, fourth_IO_Value, fifth_IO_ID,
+            fifth_IO_Value, sixth_IO_ID, sixth_IO_Value, seventh_IO_ID, seventh_IO_Value, N2_of_Two_Byte, first__IO_ID,
+            first__IO_Value, second__IO_ID, second__IO_Value, third__IO_ID, third__IO_Value, fourth__IO_ID,
+            fourth__IO_Value, fifth__IO_ID, fifth__IO_Value, sixth__IO_ID, sixth__IO_Value, N4_of_Four_Byte,
+            first_IO__ID,
+            first_IO__Value, second_IO__ID, second_IO__Value, N8_of_Eight_Byte,
+            Number_of_Data_2_Number_of_Total_Records,
+            CRC_16)
         cursor.execute(mySql_insert_query, record)
         connection.commit()
         print("Record inserted successfully into ParsingDetail table")
@@ -423,8 +448,6 @@ record = (myfunction())
             connection.close()
             print("MySQL connection is closed")
 
-insert_varibles_into_table(myfunction())
-# insert_varibles_into_table(ZeroBytes_int, DataFieldLength_int, CodecID_int, NumberofData1Records_int, date, Priority_int, a, b, Altitude_int, Angle_int ,Satellites_int,Speed_int,Event_IO_ID_int,NofTotalID_int,N1ofOneByteIO_int,FirsttIOID_int,FirstIOValue_int,SecondIOID_int,SecondIOValue_int,ThirdIOID_int,ThirdIOValue_int,FourthIOID_int,FourthIOValue_int,FifthIOID_int,FifthIOValue_int,SixthIOID_int,SixthIOValue_int,SeventhIOID_int,SeventhIOValue_int,N2ofTwoBytesIO_int,First_IOID_int,First_IOValue_int,Second_IOID_int,Second_IOValue_int,ThirdIOID_int,ThirdIOValue_int,FourthIOID_int,FourthIOValue_int,FifthIOID_int,FifthIOValue_int,SixthIOID_int,SixthIOValue_int,N4ofFourBytesIO_int,First__IOID_int,First__IOValue_int,Second__IOID_int,Second__IOValue_int,N8ofEightBytesIO_int,NumberofData2NumberofTotalRecords_int,CRC_16_int)
 
 
 
@@ -434,6 +457,11 @@ VALUES = ("20", "715", "78", "12", "2022-06-26 18:12:39", "0", "55.0684383", "74
 query = "INSERT INTO ParsingDetail(Zero_Bytes,Data_Field_Length,Codec_ID,Number_of_Data1_Records,Timestamp,Priority,Longitude,Latitude,Altitude,Angle,Satellites,Speed,Event_IO_ID,N_of_Total_ID,N1_of_One_Byte,first_IO_ID,first_IO_Value,second_IO_ID,second_IO_Value,third_IO_ID,third_IO_Value,fourth_IO_ID,fourth_IO_Value,fifth_IO_ID,fifth_IO_Value,sixth_IO_ID,sixth_IO_Value,seventh_IO_ID,seventh_IO_Value,N2_of_Two_Byte,first__IO_ID,first__IO_Value,second__IO_ID,second__IO_Value,third__IO_ID,third__IO_Value,fourth__IO_ID,fourth__IO_Value,fifth__IO_ID,fifth__IO_Value,sixth__IO_ID,sixth__IO_Value,N4_of_Four_Byte,first_IO__ID,first_IO__Value,second_IO__ID,second_IO__Value,N8_of_Eight_Byte,Number_of_Data_2_Number_of_Total_Records,CRC_16) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
 cursor.execute(query, VALUES)
 conn.commit()'''
+
+
+
+
+myfunction(Hexa_Code= "000000000000004b08010000017564e56e580027f9d4df0ed17380001000690f0000000f07f001150445010101b300fa01fb0106425434180000cd7255ceea0c430ff809002b02c70000390b100000aeeb000100008f1a")
 
 
 
